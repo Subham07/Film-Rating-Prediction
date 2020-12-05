@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Hit or Flop ?</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+body,html
+{
+height: 100%;
+width: 100%;
+margin: 0%;
+/* The image used */
+  background-image: url("static/img/backg_img.jpg");
+	height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#text_area_heading
+{
+color: white;
+padding-left: 25px;
+font-size: 150%;
+}
+.login
+{
+height: 85%;
+width: 100%;
+}
+.heading
+{
+font-family:arial,helvetica,courier;
+color: #668ce3;
+text-align: center;
+}
+.left
+{
+width: 50%;
+height: 100%;
+font-family:arial,helvetica,courier;
+margin-left: 60px;
+float: left;
+}
+
+.right
+{
+font-family:arial,helvetica,courier;
+margin-right: 150px;
+float: right;
+}
+
+#review {
+border-radius: 25px;
+border: 2px solid blue;
+padding: 20px;
+height: 200px;
+width: 400px;
+}
+
+
+#button1 {
+padding-left: 0px;
+padding: 0px;
+margin-top: 50px;
+margin-left: 100px;
+border-radius: 5px;
+border: 2px #202e78;
+color: white;
+font-size: 150%;
+opacity: 0.9;
+height: 50px;
+width: 250px;
+background-color: #202e78;
+}
+
+#output_text
+{
+color: white;
+font-family:arial,helvetica,courier;
+font-size: 150%;
+padding-top: 150px;
+padding-right: 100px;
+}
+
+textarea[type="text"]:focus{
+outline: none;
+box-shadow: 0px 0px 5px #202e78;
+border:1px solid #202e78;
+}
+
+textarea[type="text"]:hover{
+border: 5px solid #202e78;
+border-radius: 5px;
+}
+
+textarea[type="text"]:focus:hover{
+outline: none;
+box-shadow: 0px 0px 5px #202e78;
+border:5px solid #202e78;
+border-radius:0;
+
+}  
+
+.footer
+{
+font-family:arial,helvetica,courier;
+color: white;
+background-color: #4c418c;
+font-size: 125%;
+font-weight: strong;
+text-align: right;
+width: 100%;
+height: 10%;
+padding-bottom: 5px;
+}
+</style>
+</head>
+
+
+
+<body>
+
+ <div class="login">
+     <div class="heading">
+	<h1>Predict Movie Rating</h1>
+    </div>
+     <!-- Main Input For Receiving Query to our ML -->
+     <div class="left">
+    <form action="{{ url_for('predict')}}"method="post">
+    	<!--<p><b>Review text (atleast 20 words): </b></p><input id="review" type="text" name="review" required="required"/> -->
+		<p id="text_area_heading"><b>Submit Review (atleast 20 words): </b></p><textarea id="review" type="text" name="review" required="required"></textarea>
+        <button id="button1" type="submit" class="btn btn-primary btn-block btn-large" ><b>Predict Rating</b></button>
+    </form>
+    </div>
+    <div class="right">
+    <p id="output_text"><b> Predicted Film Rating: {{ prediction_text }} </b></p>
+    </div>
+
+   
+
+ </div>
+ <div class="footer">
+ <p> <b>Developed by Subham Nagar</b></p>
+ <p> <b>Contact @ subhamnagar@gmail.com</b> </p>
+ </div>
+
+
+</body>
+</html>
+
