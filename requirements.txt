@@ -11,4 +11,4 @@ matplotlib>=1.4.3
 pandas>=0.19
 tensorflow==1.13.1
 keras==2.2.4
-nltk==3.0.0
+nltk==3.2.4
