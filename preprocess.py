@@ -5,7 +5,6 @@ Created on Wed Nov 18 20:53:23 2020
 @author: Subham
 """
 import numpy as np
-import nltk
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from keras.utils.np_utils import to_categorical
