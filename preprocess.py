@@ -4,10 +4,7 @@ Created on Wed Nov 18 20:53:23 2020
 
 @author: Subham
 """
-import pandas as pd
 import numpy as np
-import os
-import sys
 
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
@@ -17,7 +14,6 @@ from keras.models import Model
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-import gensim
 
 import keras.regularizers
 
@@ -138,18 +134,3 @@ def filtertext(test_review):
     para_test=lemmatize(para_test)
     para_test=make_string(para_test)
     return para_test
-
-def vectorize(para_test,glove_embedding):
-    words=para_test[0].split(' ')
-    word_embedding=np.zeros((100))
-    cnt=0
-    for k in words:
-        try:
-            word_embedding=word_embedding+glove_embedding[k]
-            cnt+=1
-        except:
-            continue;
-    
-    word_embedding/=len(words)
-    test_vector=word_embedding
-    return test_vector
