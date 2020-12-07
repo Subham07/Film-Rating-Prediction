@@ -7,16 +7,17 @@ Created on Wed Nov 18 21:21:24 2020
 import tensorflow as tf
 import preprocess
 from flask import Flask, request, jsonify, render_template
-
+from keras.preprocessing.text import Tokenizer
 import pickle
+from keras.preprocessing.sequence import pad_sequences
 import numpy as np
 
 app=Flask(__name__)
-model_deep=pickle.load(open('deep_model.pkl','rb'))
+model_deep=pickle.load(open('deep_bilstm_model.pkl','rb'))
 global graph
 graph = tf.get_default_graph()
-glove_embedding=pickle.load(open('glove_emb.pkl','rb'))
-
+#glove_embedding=pickle.load(open('glove_emb.pkl','rb'))
+vect=pickle.load(open('text_ind.pkl','rb'))
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -34,9 +35,10 @@ def predict():
     para_test=preprocess.remove_stopwords(para_test)
     para_test=preprocess.lemmatize(para_test)
     para_test=preprocess.make_string(para_test)
-    vectors=preprocess.vectorize(para_test,glove_embedding)
+    vectors=vect.texts_to_sequences(para_test)
+    vectors_test = pad_sequences(vectors, maxlen=150, padding='post', truncating='post')
     with graph.as_default():
-        test_pred=model_deep.predict_proba(np.reshape(vectors,(1,100)))
+        test_pred=model_deep.predict_proba(np.reshape(vectors_test,(1,150)))
     return render_template('index.html',prediction_text='{:0.2f}/5'.format(test_pred[0][0]*5))
     
     
