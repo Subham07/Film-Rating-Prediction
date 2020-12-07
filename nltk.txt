@@ -1,4 +1,3 @@
 word_tokenize
 stopwords
 WordNetLemmatizer
-punkt
