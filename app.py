@@ -11,6 +11,7 @@ from keras.preprocessing.text import Tokenizer
 import pickle
 from keras.preprocessing.sequence import pad_sequences
 import numpy as np
+import nltkmodules
 
 app=Flask(__name__)
 model_deep=pickle.load(open('deep_bilstm_model.pkl','rb'))
