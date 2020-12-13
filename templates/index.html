@@ -9,6 +9,7 @@
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <style>
+  @media only screen and (min-width: 1001px) {
 body,html
 {
 height: 100%;
@@ -42,16 +43,16 @@ text-align: center;
 .left
 {
 width: 50%;
-height: 100%;
+height: 85%;
 font-family:arial,helvetica,courier;
-margin-left: 60px;
 float: left;
 }
 
 .right
 {
+width: 50%;
+height: 85%;
 font-family:arial,helvetica,courier;
-margin-right: 150px;
 float: right;
 }
 
@@ -118,6 +119,116 @@ text-align: right;
 width: 100%;
 height: 10%;
 padding-bottom: 5px;
+}
+
+}
+@media only screen and (max-width: 1000px) {
+body,html
+{
+height: 100%;
+width: 100%;
+margin: 0%;
+/* The image used */
+  background-image: url("static/img/backg_img.jpg");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#text_area_heading
+{
+color: white;
+font-size: 150%;
+}
+.login
+{
+height: 85%;
+width: 100%;
+}
+.heading
+{
+font-family:arial,helvetica,courier;
+color: #668ce3;
+text-align: center;
+height: 15%;
+width: 100%;
+}
+.left
+{
+width: 50%;
+height: 85%;
+font-family:arial,helvetica,courier;
+float: left;
+}
+
+.right
+{
+width: 50%;
+height: 85%;
+font-family:arial,helvetica,courier;
+float: right;
+}
+
+#review {
+border-radius: 25px;
+border: 2px solid blue;
+padding: 20px;
+height: 200px;
+width: 400px;
+}
+
+
+#button1 {
+padding-left: 0px;
+padding: 0px;
+border-radius: 5px;
+border: 2px #202e78;
+color: white;
+font-size: 150%;
+opacity: 0.9;
+height: 50px;
+width: 250px;
+background-color: #202e78;
+}
+
+#output_text
+{
+color: white;
+font-family:arial,helvetica,courier;
+font-size: 150%;
+}
+
+textarea[type="text"]:focus{
+outline: none;
+box-shadow: 0px 0px 5px #202e78;
+border:1px solid #202e78;
+}
+
+textarea[type="text"]:hover{
+border: 5px solid #202e78;
+border-radius: 5px;
+}
+
+textarea[type="text"]:focus:hover{
+outline: none;
+box-shadow: 0px 0px 5px #202e78;
+border:5px solid #202e78;
+border-radius:0;
+
+}  
+
+.footer
+{
+font-family:arial,helvetica,courier;
+color: white;
+background-color: #4c418c;
+font-size: 125%;
+font-weight: strong;
+text-align: right;
+width: 100%;
+height: 10%;
+}
+
 }
 </style>
 </head>
